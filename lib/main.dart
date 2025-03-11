@@ -12,42 +12,79 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  var numeroclick = 0;
+  int numeroclick = 0;
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: (){
-      
-          setState(() {
-             numeroclick++;
-          });
-        }, child: const Icon(Icons.add),),
         appBar: AppBar(
-          title:  const Text('Hola pvta'),
+          title: const Text('Hola pvta'),
           backgroundColor: Colors.blueAccent,
           centerTitle: true,
         ),
-
-        body:  Center(
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("$numeroclick", style: TextStyle(
-                fontSize: 100,
-                fontWeight: FontWeight.w100
-              ),),
-              Text('Numero de clicks', style: 
-              TextStyle(
-                fontSize: 20,
-
-              ),),
+              Text(
+                "$numeroclick",
+                style: const TextStyle(
+                  fontSize: 100,
+                  fontWeight: FontWeight.w100,
+                ),
+              ),
+              const Text(
+                'Número de clicks',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
             ],
-          
           ),
         ),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Botón para sumar
+              FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    numeroclick++;
+                  });
+                },
+                tooltip: 'Sumar',
+                child: const Icon(Icons.add),
+              ),
+              const SizedBox(width: 10),
+              // Botón para restar
+              FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    numeroclick--;
+                  });
+                },
+                tooltip: 'Restar',
+                child: const Icon(Icons.remove),
+              ),
+              const SizedBox(width: 10),
+              // Botón para reiniciar
+              FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    numeroclick = 0;
+                  });
+                },
+                tooltip: 'Reiniciar',
+                child: const Icon(Icons.refresh),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       ),
     );
   }
