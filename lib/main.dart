@@ -3,6 +3,7 @@ import 'package:noseflutter/pages/counter.dart';
 import 'package:noseflutter/pages/home.dart';
 import 'package:noseflutter/pages/buttons.dart';
 import 'package:noseflutter/pages/cards.dart';
+import 'package:noseflutter/pages/snackbars.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +23,8 @@ class MainApp extends StatelessWidget {
         '/counter': (context) => const CounterPage(),
         '/contenedores': (context) => const ContainersPage(),
         '/buttons': (context) => const ButtonsPage(),
-        '/cards': (context) => const CardsPage()
+        '/cards': (context) => const CardsPage(),
+        '/snackbars': (context) => const SnackbarsPage(),
       },
       theme: ThemeData(
         appBarTheme: const AppBarTheme(

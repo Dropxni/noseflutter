@@ -46,6 +46,16 @@ class HomePage extends StatelessWidget {
             onTap: () => (
               Navigator.pushNamed(context,'/cards' )
             ),
+          ),
+          ListTile(
+            title: const Text("SnackBar"),
+            subtitle: const Text("2 SnackBars"),
+            leading: const Icon(Icons.card_giftcard),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () => (
+              Navigator.pushNamed(context,'/snackbars' )
+            ),
+
           )
         ],
       ),
